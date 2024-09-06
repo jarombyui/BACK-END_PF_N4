@@ -5,15 +5,6 @@ import { getIncidentesByUsuario } from "../middlewares/auth.middleware.js";
 
 const incidentRoutes = Router();
 
-// incidentRoutes.get('/create/inc', store); // crear incidente
-// incidentRoutes.get('/all/inc', all); // traer todos 
-// incidentRoutes.get('/byId/inc', find); // buscar por id 
-// incidentRoutes.post('/create/inc',verificarTokenYIncidente, verificarTokenYIncidente); // Crear un nuevo incidente
-// incidentRoutes.get('/inc/:id', update);
-// incidentRoutes.get('/inc/:id', updatePartial);
-// incidentRoutes.get('/inc/:id', remove);
- // Obtener un incidente por ID
-
  incidentRoutes.get('/inc/all', verificarTokenYIncidente, all); // Obtener todos los incidentes
  incidentRoutes.post('/inc/create', verificarTokenYIncidente, store); // Crear un nuevo incidente
  incidentRoutes.get('/inc/:id', verificarTokenYIncidente, find); // Obtener un incidente por ID
