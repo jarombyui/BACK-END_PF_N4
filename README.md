@@ -12,3 +12,6 @@ request que recibe el valor del id en auth.middleware.js / recibe la imfo del us
 req.resident = ressidente
 
 
+us: paco123
+contr: Paco123123
+
