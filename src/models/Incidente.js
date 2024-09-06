@@ -77,6 +77,35 @@ class Incident {
         return incidente;
     }
 
+    static async updateById(id, updateFields) {
+        try {
+            const fields = Object.keys(updateFields);
+            const values = Object.values(updateFields);
+
+            if (fields.length === 0) {
+                throw new Error('No fields to update');
+            }
+
+            // Crear una cadena de SQL para la consulta de actualización
+            const setClause = fields.map(field => `${field} = ?`).join(', ');
+            const query = `UPDATE incidents SET ${setClause} WHERE id_incident = ?`;
+
+            // Añadir el ID del incidente al final de los valores
+            values.push(id);
+
+            const [result] = await pool.execute(query, values);
+
+            return result;
+        } catch (error) {
+            throw new Error('Error updating incident: ' + error.message);
+        }
+    }
+    
+    // También podrías añadir updatePartialById para actualizaciones parciales
+    static async updatePartialById(id, updateFields) {
+        return this.updateById(id, updateFields);
+    }
+
 
 }
 
