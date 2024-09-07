@@ -46,8 +46,6 @@ export const getIncidentesByUsuario = async (req, res) => {
 };
 
 
-
-
 // import { SECRET_KEY } from "../config/config.js";
 // import jwt from 'jsonwebtoken'
 // import Resident from "../models/Usuario.js";
