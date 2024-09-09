@@ -11,7 +11,7 @@ password: Elena23123
 - Credenciales del usuario Administrador:  'admin'
 
 username : Max123 |  Max123@gmail.com
-
+password: Max23123
 
 *** FUNCIONALIDADES : usuario
 -logearse / deslogearse
@@ -27,6 +27,7 @@ username : Max123 |  Max123@gmail.com
 -leer/traer los usuarios por id
 -eliminar usuarios
 -eliminar inidentes
+
 
 
 
