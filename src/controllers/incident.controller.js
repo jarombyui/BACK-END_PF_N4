@@ -47,22 +47,43 @@ export const incidentCreate = async (req, res) => {
 
 export const incidenUpdate = async (req, res) => {
     try {
-        const { asunto, descripcion, tipo, estado, fecha_creacion } = req.body
-        const { id } = req.params
+        console.log('Datos recibidos:', req.body);  // <-- Verifica los datos recibidos
+        const { asunto, descripcion, tipo, estado, fecha_creacion } = req.body;
+        const { id } = req.params;
 
         if (asunto || descripcion || tipo || estado || fecha_creacion || id) {
-            const incinew = await IncidentModel.incdUpdate({ asunto, descripcion, tipo, estado, fecha_creacion, id })
-            if (incinew.affectedRows === 1) return res.status(200).json({ message: 'Incidente actualizado con exito' })
-            if (incinew.affectedRows === 0) return res.status(400).json({ message: 'Error al actualizar el incidente' })
+            const incinew = await IncidentModel.incdUpdate({ asunto, descripcion, tipo, estado, fecha_creacion, id });
+            if (incinew.affectedRows === 1) return res.status(200).json({ message: 'Incidente actualizado con éxito' });
+            if (incinew.affectedRows === 0) return res.status(400).json({ message: 'Error al actualizar el incidente' });
         }
 
-        res.status(400).json({ message: 'Faltan datos relevantes' })
+        res.status(400).json({ message: 'Faltan datos relevantes' });
 
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        console.error('Error en el servidor:', error);
+        res.status(500).json({ message: error.message });
     }
+};
 
-}
+// estaba manejando la data como form pero cambie a jason// 
+// export const incidenUpdate = async (req, res) => {
+//     try {
+//         const { asunto, descripcion, tipo, estado, fecha_creacion } = req.body
+//         const { id } = req.params
+
+//         if (asunto || descripcion || tipo || estado || fecha_creacion || id) {
+//             const incinew = await IncidentModel.incdUpdate({ asunto, descripcion, tipo, estado, fecha_creacion, id })
+//             if (incinew.affectedRows === 1) return res.status(200).json({ message: 'Incidente actualizado con exito' })
+//             if (incinew.affectedRows === 0) return res.status(400).json({ message: 'Error al actualizar el incidente' })
+//         }
+
+//         res.status(400).json({ message: 'Faltan datos relevantes' })
+
+//     } catch (error) {
+//         res.status(500).json({ message: error.message })
+//     }
+
+// }
 export const incidentFromUs = async (req, res) => {
     try {
         const { id } = req.params

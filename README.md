@@ -16,8 +16,8 @@ creacion usuario: admin
 }
 
 {
-    "nombre": "Melvin",
-    "apellido": "Campos",
+    "nombre": "Melvincito",
+    "apellido": "Campitos",
     "email": "jaromcamposrodriguez@gmail.com",
     "password": "123456789",
     "departamento": "F120",
@@ -36,6 +36,7 @@ creacion usuario: admin
 }
 
 *************************************
+
 creacion usuario: user / residente
 
 {
@@ -48,22 +49,59 @@ creacion usuario: user / residente
     "numero_contacto": "123456789"
 }
 
+{
+    "nombre": "Muzan",
+    "apellido": "Ubuyashiki",
+    "email": "Muzan@gmail.com",
+    "password": "1234567",
+    "departamento": "S345",
+    "rol": "residente",
+    "numero_contacto": "12345678"
+}
+
+******************************
+se pueden crear los siguientes
+se pueden crear los siguientes 
+
+
+{
+    "nombre": "Inuyasha",
+    "apellido": "Kamui",
+    "email": "Inuyasha@gmail.com",
+    "password": "1234567912",
+    "departamento": "L105",
+    "rol": "residente",
+    "numero_contacto": "132546999"
+}
+
+
+{
+    "nombre": "Kakaroto",
+    "apellido": "Sayayin",
+    "email": "Kakaroto@gmail.com",
+    "password": "12345679",
+    "departamento": "S345",
+    "rol": "Administrador",
+    "numero_contacto": "132546999"
+}
+
+
 ************************************
 ************************************
 ************************************
 
-FUNCIONALIDADES :  residente / usuario 
+FUNCIONALIDADES :  residente / Resident 
 
 -logearse
 - ver sus datos / card / rol / perfil
 - deslogearse
 - actualizar sus datos/ perfil
-- registrar un incidente
-- actualizar el incidente
+- registrar un incidente / registrar mas incidentes
+- volver a inicio/ Home
 
 ************************************
 
-FUNCIONALIDADES : Admin / administrador
+FUNCIONALIDADES : administrador / Admin
 -logearse
 -ver sus datos / card / rol / perfil
 -deslogearse
@@ -74,8 +112,10 @@ FUNCIONALIDADES : Admin / administrador
 -eliminar inidentes
 -leer/traer  todos los incidentes
 -leer/traer los incidentes por estado
+-actualizar/ el estado de los incidentes
 -leer/traer  todos los usuarios
 -eliminar  usuarios
+-volver a inicio/ Home
 
 
 

@@ -1,52 +1,6 @@
--- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
---
--- Host: localhost    Database: incidentesfullstack
--- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+CREATE DATABASE incidentesFinalDB;
+use incidentesFinalDB;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */
-/*!50503 SET NAMES utf8mb4 */
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */
-/*!40103 SET TIME_ZONE='+00:00' */
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */
-
---
--- Table structure for table `incidencia`
---
-
-CREATE DATABASE incidentesFullStack;
-use incidentesFullStack;
-
-DROP TABLE IF EXISTS `incidencia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */
-/*!50503 SET character_set_client = utf8mb4 */
-CREATE TABLE `incidencia` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario_id` int(11) NOT NULL,
-  `asunto` varchar(100) NOT NULL,
-  `descripcion` text NOT NULL,
-  `tipo` enum('fontaneria','electricidad','limpieza','otro') NOT NULL,
-  `estado` enum('pendiente','en_proceso','resuelta') NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `fecha_creacion` datetime DEFAULT current_timestamp(),
-  `fecha_actualizacion` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  PRIMARY KEY (`id`),
-  KEY `usuario_id` (`usuario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */
-
-
--- Table structure for table `usuarios`
---
-
-DROP TABLE IF EXISTS `usuarios`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */
-/*!50503 SET character_set_client = utf8mb4 */
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
@@ -60,23 +14,33 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */
 
---
--- Dumping data for table `usuarios`
---
+INSERT INTO `usuarios` VALUES (1,'Rengoku','Hunter','Rengoku@gmail.com','$2b$10$TwA18uSPePJqv2m2HfFwkOKyeQtuKBsAAfdLW6iX00n3yhFI1sGre','K408','administrador','1234567898','2024-09-11 04:22:31'),(2,'Jarom','Fields','Jarom@gmail.com','$2b$10$D/TjaZtF/AYJh5Nzyvve2eXAv432lNPdFUAexyWE7fCPb7BDS0nqy','D108','administrador','123456789','2024-09-11 04:25:20'),(3,'Melvin','Campos','jaromcamposrodriguez@gmail.com','$2b$10$cJ83p6rsSxI8/TLnF28vXewWBxWQA5sGav3YmszP5S1zo.tNuClUu','F120','administrador','123456123','2024-09-11 04:25:43'),(4,'Tangiro','Kushiki','Camado@gmail.com','$2b$10$L2AlvoN6gLKZeqtsz2kBEepc4Ln3xyH5.spDfxX.Gk3Ue.q5HeTHG','F109','residente','123456789','2024-09-11 04:26:23'),(5,'Muzan','Ubuyashiki','Muzan@gmail.com','$2b$10$bafuV8Y0WgoNRxG2DDfe4.u/LKTwqCXHQJzUB67Tvwn9im40c7ZmC','X12','residente','12345678','2024-09-11 04:27:18');
 
---
--- Dumping routines for database 'incidentesfullstack'
---
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */
+CREATE TABLE `incidencia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(11) NOT NULL,
+  `asunto` varchar(100) NOT NULL,
+  `descripcion` text NOT NULL,
+  `tipo` enum('fontaneria','electricidad','limpieza','otro') NOT NULL,
+  `estado` enum('pendiente','en_proceso','resuelta') NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `fecha_creacion` datetime DEFAULT current_timestamp(),
+  `fecha_actualizacion` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `usuario_id` (`usuario_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dump completed on 2024-09-10 23:48:38
+
+INSERT INTO `incidencia` (`id`, `usuario_id`, `asunto`, `descripcion`, `tipo`, `estado`, `image`) VALUES
+(1, 1, 'Fuga de agua', 'Hay una fuga de agua en el baño principal.', 'fontaneria', 'pendiente', 'fuga_agua.jpg'),
+(2, 2, 'Corte de luz', 'El segundo piso no tiene electricidad.', 'electricidad', 'en_proceso', 'corte_luz.jpg'),
+(3, 3, 'Limpieza general', 'Se necesita limpieza en el área de recepción.', 'limpieza', 'resuelta', 'limpieza_recepcion.jpg'),
+(4, 4, 'Reparación de enchufe', 'El enchufe de la cocina está roto.', 'electricidad', 'pendiente', 'enchufe_roto.jpg'),
+(5, 5, 'Desatascar fregadero', 'El fregadero de la cocina está atascado.', 'fontaneria', 'en_proceso', 'fregadero_atascado.jpg');
+
+
+select * from incidencia;
+select * from usuarios;
+
