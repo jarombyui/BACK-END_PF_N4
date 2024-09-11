@@ -1,32 +1,81 @@
- INCIDENT APP : Instrucciones de Uso
 
- - Credenciales del usuario Residente: 'user'
 
-password: paco123 | pacoo@example.com
-password: Paco123123
+*************************************
 
-password: elena123 | Elena123@gmail.com
-password: Elena23123
 
-- Credenciales del usuario Administrador:  'admin'
+creacion usuario: admin
 
-username : Max123 |  Max123@gmail.com
-password: Max23123
+{
+    "nombre": "Jarom",
+    "apellido": "Fields",
+    "email": "Jarom@gmail.com",
+    "password": "123456",
+    "departamento": "D108",
+    "rol": "Administrador",
+    "numero_contacto": "123456789"
+}
 
-*** FUNCIONALIDADES : usuario
--logearse / deslogearse
--registrar un incidente.
+{
+    "nombre": "Melvin",
+    "apellido": "Campos",
+    "email": "jaromcamposrodriguez@gmail.com",
+    "password": "123456789",
+    "departamento": "F120",
+    "rol": "Administrador",
+    "numero_contacto": "123456123"
+}
 
-*** FUNCIONALIDADES : admin
--logearse / deslogearse
+{
+    "nombre": "Rengoku",
+    "apellido": "Hunter",
+    "email": "Rengoku@gmail.com",
+    "password": "123456789",
+    "departamento": "K408",
+    "rol": "Administrador",
+    "numero_contacto": "1234567898"
+}
+
+*************************************
+creacion usuario: user / residente
+
+{
+    "nombre": "Tangiro",
+    "apellido": "Kushiki",
+    "email": "Camado@gmail.com",
+    "password": "1234567",
+    "departamento": "F109",
+    "rol": "residente",
+    "numero_contacto": "123456789"
+}
+
+************************************
+************************************
+************************************
+
+FUNCIONALIDADES :  residente / usuario 
+
+-logearse
+- ver sus datos / card / rol / perfil
+- deslogearse
+- actualizar sus datos/ perfil
+- registrar un incidente
+- actualizar el incidente
+
+************************************
+
+FUNCIONALIDADES : Admin / administrador
+-logearse
+-ver sus datos / card / rol / perfil
+-deslogearse
+-actualizar sus datos/ perfil
 -registrar un nuevo usuario
--registrar un incidente.
--leer/traer  todos los incidentes
--leer/traer los incidentes por id
--leer/traer  todos los usuarios
--leer/traer los usuarios por id
 -eliminar usuarios
+-registrar un incidente.
 -eliminar inidentes
+-leer/traer  todos los incidentes
+-leer/traer los incidentes por estado
+-leer/traer  todos los usuarios
+-eliminar  usuarios
 
 
 

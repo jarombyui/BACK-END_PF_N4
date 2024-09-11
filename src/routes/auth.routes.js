@@ -1,11 +1,10 @@
 import { Router } from "express";
-import { login, me } from "../controllers/auth.controller.js";
-import { verificarToken } from "../middlewares/auth.middleware.js";
+import { authUser } from "../controllers/auth.user.controller.js";
+import { infoUser, verifyToken } from "../middlewares/verifyToken.js";
 
-const usuarioRoutes= Router()
- 
-usuarioRoutes.post('/login', login ) // para iniciar sesion
-usuarioRoutes.get('/me', verificarToken, me) //middleware verificarToken ||me, trae la info de quien se logueó
+const router = Router()
 
+router.post('/login',authUser)
+router.get('/me',verifyToken,infoUser)
 
-export default usuarioRoutes
+export default router
