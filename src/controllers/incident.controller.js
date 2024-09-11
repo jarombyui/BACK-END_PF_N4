@@ -29,9 +29,10 @@ export const incidentAll = async (req, res) => {
 export const incidentCreate = async (req, res) => {
     try {
         const { usuario_id, asunto, descripcion, tipo,  estado } = req.body
-
+        const image= req.file ? req.file.filename : ''
+        console.log({photo:image}) // referencie photo con image, // photo viene del request del form.
         if (usuario_id && asunto && descripcion && tipo && estado) {
-            const incinew = await IncidentModel.incdCreate({ usuario_id, asunto, descripcion, tipo,  estado })
+            const incinew = await IncidentModel.incdCreate({ usuario_id, asunto, descripcion, tipo,  estado, image }) // añadi el campo image
             if (incinew.affectedRows === 1) return res.status(200).json({ message: 'Se ha creado el incidente' })
             if (incinew.affectedRows === 0) return res.status(400).json({ message: 'Error al crear el incidente' })
         }

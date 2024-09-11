@@ -11,10 +11,10 @@ export class IncidentModel {
         const [rows] = await pool.execute('SELECT * FROM incidencia WHERE id = ?', [id]);
         return rows[0];
     }
-
-    static async incdCreate({ usuario_id, asunto, descripcion, tipo, estado }) {
-        const sql = 'INSERT INTO incidencia (usuario_id, asunto, descripcion, tipo, estado) VALUES (?, ?, ?, ?, ?)';
-        const values = [usuario_id, asunto, descripcion, tipo, estado];
+    // añadi el campo de image en la primera ysegunda linea, y en el campo de ? añadi un ?.
+    static async incdCreate({ usuario_id, asunto, descripcion, tipo, estado, image }) {
+        const sql = 'INSERT INTO incidencia (usuario_id, asunto, descripcion, tipo, estado, image) VALUES (?, ?, ?, ?, ?, ?)';
+        const values = [usuario_id, asunto, descripcion, tipo, estado, image];
         const [result] = await pool.execute(sql, values);
         return result;
     }

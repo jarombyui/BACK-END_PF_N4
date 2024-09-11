@@ -4,7 +4,7 @@ import { PORT } from './config/config.js'
 import routerUser from './Routes/user.routes.js'
 import routerIncident from './Routes/incident.routes.js'
 import routerAuth from './Routes/auth.routes.js'
-import { validCors } from './middlewares/validCords.js'
+import { validCors } from './middleware/validCords.js'
 
 const app= express()
 app.use(morgan('dev'))
